@@ -9,13 +9,11 @@ dotenv.config({path: configPath});
 
 const app = express();
 app.use(express.urlencoded({extended: false})) // обробляти форми
+app.use(express.json()) // як і app.use(express.urlencoded({extended: false})), але для json
 
-app.use(express.json()) // як і app.use(express.urlencoded({extended: false}))
+app.use("/api/v1", require("./routes/moviesRouter")) //вказуємо що будемо виконувати і де всі роути прописані
 
-app.use("/api/v1", require("./routes/moviesRouter"))
-
-
-app.use("*", (req, res, next)=>{
+app.use("*", (req, res, next)=>{ //якщо невірна адреса
 res.status(404);
 res.json({
     code: 404,
@@ -23,8 +21,6 @@ res.json({
 });
 next();
 })
-
-
 
 app.use((error, req, res, next)=>{
     const statusCode = res.statusCode || 500;
@@ -38,9 +34,6 @@ res.json({
     // console.log(error.stack);
     // console.log(res.statusCode);
 })
-
-
-
 
 
 connectDb();

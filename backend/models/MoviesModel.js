@@ -1,7 +1,7 @@
 // const Cat = mongoose.model('Cat', { name: String });
 const { model, Schema } = require("mongoose");
 
-const moviesSchema = Schema({
+const MoviesSchema = Schema({
   title: {
     type: String,
     required: [true, "db:title is required"],
@@ -16,4 +16,4 @@ const moviesSchema = Schema({
   },
 });
 
-module.exports = model("movies", moviesSchema);
+module.exports = model("movies", MoviesSchema);

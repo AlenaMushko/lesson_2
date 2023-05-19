@@ -6,13 +6,13 @@ const moviesRouter = express.Router();
 // додати фільм
 moviesRouter.post("/movies", (req, res, next)=>{ console.log("спрацював Joi"); next()}, moviesController.add);
 // отримати всі фільми
-moviesRouter.get("/movies", moviesController.getAll);
+moviesRouter.get("/movies",(req, res, next)=>{ console.log("спрацював Joi"); next()}, moviesController.getAll);
 // отримати 1 фільм
-moviesRouter.get("/movies/:id", moviesController.getOne);
+moviesRouter.get("/movies/:id", (req, res, next)=>{ console.log("спрацював Joi"); next()}, moviesController.getOne);
 // обновити фільм
-moviesRouter.patch("/movies/:id", moviesController.update);
+moviesRouter.patch("/movies/:id", (req, res, next)=>{ console.log("спрацював Joi"); next()}, moviesController.update);
 //видалити фільм
-moviesRouter.delete("/movies/:id", moviesController.remove);
+moviesRouter.delete("/movies/:id", (req, res, next)=>{ console.log("спрацював Joi"); next()}, moviesController.remove);
 
 
 
