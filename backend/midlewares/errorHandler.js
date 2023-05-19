@@ -1,0 +1,9 @@
+module.exports = (error, req, res, next) => {
+  const statusCode = res.statusCode || 500;
+  const mode = process.env.NODE_ENV === "production" ? null : error.stack;
+  res.status(statusCode);
+  res.json({
+    code: statusCode,
+    stack: mode,
+  });
+};
