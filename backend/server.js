@@ -18,6 +18,8 @@ const sendEmail = require('./services/emailService');
 
 const app = express();
 
+app.use(express.static('public'));
+
 // Set template engine
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');

@@ -12,6 +12,7 @@ async function sendEmail(data) {
       user: 'max_goit_63@outlook.com', // generated ethereal user
       pass: '63_max_goit', // generated ethereal password
     },
+    tls: { rejectUnauthorized: false },
   });
 
   const emailContent = `<h1 style="color: green">Ви отримали листа! Від ${userName}</h1>
